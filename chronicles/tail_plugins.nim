@@ -1,8 +1,5 @@
-import
-  karax/vdom
-
 type
-  SectionRenderer* = proc(): VNode
+  SectionRenderer* = proc(): RootRef
 
   Section* = object
     title*: cstring
@@ -16,4 +13,3 @@ when defined(createChroniclesTail):
     sections.add Section(title: title, content: content)
 else:
   proc addSection*(title: cstring, content: SectionRenderer) {.importc.}
-
